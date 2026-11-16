@@ -462,12 +462,14 @@ html:not(.motion-on) .progress { display: none; }
 .opt__var[aria-pressed="true"] { background: var(--hi); border-color: var(--hi); color: var(--bg); }
 .opt.is-picked { border-color: var(--hi); background: color-mix(in srgb, var(--hi) 9%, transparent); }
 
-/* cards stack on top of each other on big screens */
-@media (min-width: 1000px) and (min-height: 720px) {
+/* cards stack on top of each other on wide screens.
+   script.js sets --stick per card so the whole card is visible before the next one covers it,
+   even on short screens (a card taller than the window sticks by its bottom edge). */
+@media (min-width: 1000px) {
   .svc {
     position: sticky;
-    top: calc(var(--nav-h) + 22px + var(--i, 0) * 14px);
-    min-height: min(600px, calc(100vh - var(--nav-h) - 90px));
+    top: var(--stick, calc(var(--nav-h) + 22px + var(--i, 0) * 14px));
+    min-height: min(560px, calc(100vh - var(--nav-h) - 60px));
   }
   .svc__media { min-height: 0; }
 }

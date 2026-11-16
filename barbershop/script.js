@@ -797,6 +797,33 @@
   }, { passive: true });
   nav.addEventListener('focusin', () => setNavHidden(false));
 
+  /* ───────── Service cards: where each one sticks while the next slides over ─────────
+     Prefer just under the nav; if the card is taller than the space left, stick it by its
+     bottom edge instead so every option on it can be seen. */
+  const stickTops = [];
+  const wideStack = window.matchMedia('(min-width: 1000px)');
+  const STEP = 14; // each card sits a little lower than the one before, so their edges show like a deck
+  const layoutStack = () => {
+    if (!wideStack.matches) {
+      cards.forEach((card, i) => { card.style.removeProperty('--stick'); stickTops[i] = 0; });
+      return;
+    }
+    // one shared starting point: just under the nav, or higher if a card needs the room to be fully seen
+    let base = nav.offsetHeight + 22;
+    cards.forEach((card, i) => {
+      base = Math.min(base, window.innerHeight - card.offsetHeight - 24 - i * STEP);
+    });
+    cards.forEach((card, i) => {
+      const top = Math.round(base + i * STEP);
+      card.style.setProperty('--stick', `${top}px`);
+      stickTops[i] = top;
+    });
+  };
+  layoutStack();
+  window.addEventListener('resize', layoutStack);
+  window.addEventListener('load', layoutStack);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutStack);
+
   const navLinks = $$('.nav__links a');
   if ('IntersectionObserver' in window) {
     const spy = new IntersectionObserver((entries) => {
@@ -975,7 +1002,7 @@
   }
 
   const mm = gsap.matchMedia();
-  mm.add('(min-width: 1000px) and (min-height: 720px)', () => {
+  mm.add('(min-width: 1000px)', () => {
     cards.forEach((card, i) => {
       const next = cards[i + 1];
       if (!next) return;
@@ -983,7 +1010,7 @@
         scrollTrigger: {
           trigger: next,
           start: 'top bottom',
-          end: () => `top ${nav.offsetHeight + 22 + (i + 1) * 14}px`,
+          end: () => { layoutStack(); return `top ${stickTops[i + 1]}px`; }, // until the next card settles
           scrub: true,
           invalidateOnRefresh: true,
         },
