@@ -1,0 +1,9 @@
+# local tool settings
+.claude/
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+node_modules/

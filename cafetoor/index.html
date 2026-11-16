@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cafetoor — Café &amp; Juice Bar</title>
+  <meta name="description" content="Cafetoor is a neighbourhood café and juice bar — slow coffee, cold-pressed juice, warm bakes, and a room full of light, timber and green.">
+  <meta name="theme-color" content="#0e0d0b">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/poster.jpg">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Motion bootstrap: hides the hero for its intro only when motion will run,
+       and always gives the page back after 4s if the animation libraries fail. -->
+  <script>
+    (function (h) {
+      h.classList.add('js');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      h.classList.add('has-motion');
+      window.__motionFallback = setTimeout(function () { h.classList.remove('has-motion'); }, 4000);
+    })(document.documentElement);
+  </script>
+</head>
+<body>
+  <a class="skip" href="#story">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+
+  <!-- ───────── NAV ───────── -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Cafetoor — back to top">
+      <span class="brand__name">Cafetoor</span>
+      <span class="brand__sub">Café &amp; Juice Bar</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#story">Story</a>
+      <a href="#room">The Room</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+    </nav>
+
+    <div class="nav__end">
+      <!-- TODO: point Order Now at your ordering page (Zomato / Swiggy / WhatsApp / own link) -->
+      <a class="btn btn--accent btn--sm" href="#visit" data-magnetic><span class="btn__txt" data-text="Order Now">Order Now</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer" hidden>
+    <nav class="drawer__links" aria-label="Mobile">
+      <a href="#story"><span aria-hidden="true">01</span>Story</a>
+      <a href="#room"><span aria-hidden="true">02</span>The Room</a>
+      <a href="#menu"><span aria-hidden="true">03</span>Menu</a>
+      <a href="#ritual"><span aria-hidden="true">04</span>The Ritual</a>
+      <a href="#visit"><span aria-hidden="true">05</span>Visit</a>
+    </nav>
+    <div class="drawer__foot">
+      <p>Coffee · Juice · Bakery</p>
+      <a class="btn btn--accent" href="#visit"><span class="btn__txt" data-text="Order Now">Order Now</span></a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ───────── HERO ───────── -->
+    <section class="hero" id="top" aria-label="Welcome to Cafetoor">
+      <div class="hero__frame">
+        <div class="hero__media">
+          <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg" aria-hidden="true" tabindex="-1">
+            <source src="assets/hero.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero__shade" aria-hidden="true"></div>
+        <div class="grain" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__inner container">
+        <p class="hero__kicker" data-hero-item><span class="pulse" aria-hidden="true"></span>Coffee · Juice · Bakery</p>
+        <h1 class="hero__title" data-hero-title>A corner worth<br> <em>slowing down</em> for.</h1>
+        <div class="hero__foot">
+          <span class="hero__rule" aria-hidden="true"></span>
+          <p class="hero__sub" data-hero-item>Slow coffee, cold-pressed juice and warm bakes — in a room full of light, timber and green.</p>
+          <div class="hero__cta" data-hero-item>
+            <a class="btn btn--light" href="#menu" data-magnetic><span class="btn__txt" data-text="Explore the Menu">Explore the Menu</span></a>
+            <a class="btn btn--ghost" href="#visit" data-magnetic><span class="btn__txt" data-text="Find Us">Find Us</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="badge" data-hero-item aria-hidden="true">
+        <svg class="badge__ring" viewBox="0 0 200 200">
+          <defs><path id="badgePath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+          <text><textPath href="#badgePath" textLength="488" lengthAdjust="spacing">Slow coffee · Cold pressed · Baked daily ·</textPath></text>
+        </svg>
+        <span class="badge__core">✦</span>
+      </div>
+    </section>
+
+    <!-- ───────── MARQUEE ───────── -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span>Slow coffee</span><i>✦</i>
+          <span><em>Cold-pressed</em> juice</span><i>✦</i>
+          <span>Baked each morning</span><i>✦</i>
+          <span>Squeeze <em>the day</em></span><i>✦</i>
+        </div>
+        <div class="marquee__group">
+          <span>Slow coffee</span><i>✦</i>
+          <span><em>Cold-pressed</em> juice</span><i>✦</i>
+          <span>Baked each morning</span><i>✦</i>
+          <span>Squeeze <em>the day</em></span><i>✦</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ───────── 01 / THE HOUSE ───────── -->
+    <section class="house" id="story">
+      <div class="container">
+        <div class="sec-head grid">
+          <p class="label" data-reveal><span class="label__num">(01)</span>The House</p>
+          <p class="house__lede" data-scrub-words>Cafetoor is a neighbourhood café with a garden heart — bright pressed juices, patient espresso, warm bakes, and the kind of welcome that makes a first visit feel familiar.</p>
+        </div>
+
+        <div class="house__media grid">
+          <figure class="house__big media" data-image-reveal>
+            <img src="assets/story.jpg" alt="The Cafetoor counter, with its hanging chalk menu board and marble pastry display" loading="lazy" width="1280" height="720" data-parallax="7">
+          </figure>
+          <div class="house__side">
+            <figure class="house__small media" data-image-reveal>
+              <img src="assets/booth.jpg" alt="A round dining table set with glasses and white flowers beside the counter" loading="lazy" width="1280" height="720" data-parallax="7">
+            </figure>
+            <p class="house__note" data-reveal>Come for the coffee. Stay for the light, the greenery, and one more slice for the table.</p>
+          </div>
+        </div>
+
+        <ol class="pillars grid" data-reveal-group>
+          <li class="pillar" data-reveal-item>
+            <span class="pillar__num">01</span>
+            <h3 class="pillar__title">Coffee</h3>
+            <p>Pulled slowly and poured with care — espresso, pour over and a long, cold brew.</p>
+          </li>
+          <li class="pillar" data-reveal-item>
+            <span class="pillar__num">02</span>
+            <h3 class="pillar__title">Juice</h3>
+            <p>Pressed to order from whole fruit and greens, bright and cold from the bar.</p>
+          </li>
+          <li class="pillar" data-reveal-item>
+            <span class="pillar__num">03</span>
+            <h3 class="pillar__title">Bakery</h3>
+            <p>Croissants, loaves and cakes, baked here every morning for the counter.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ───────── 02 / THE ROOM (horizontal gallery) ───────── -->
+    <section class="room" id="room">
+      <div class="room__head container grid">
+        <p class="label" data-reveal><span class="label__num">(02)</span>The Room</p>
+        <h2 class="h2 room__title" data-split>Take a walk <em>through.</em></h2>
+        <p class="room__hint" data-reveal>Six corners, one room.<br><span class="only-wide">Keep scrolling to wander.</span><span class="only-narrow">Swipe to wander.</span></p>
+      </div>
+
+      <div class="room__viewport">
+        <ol class="room__track">
+          <li class="slide slide--wide">
+            <figure>
+              <div class="slide__media"><img src="assets/terrace.jpg" alt="The terrace: round white tables and woven chairs under a high ceiling, palms beyond the glass" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span class="slide__num">01</span><span class="slide__title">The Terrace</span><span class="slide__text">Palms, open air and round white tables.</span></figcaption>
+            </figure>
+          </li>
+          <li class="slide slide--tall">
+            <figure>
+              <div class="slide__media"><img src="assets/entrance.jpg" alt="Looking through the black-framed glass doorway towards the counter" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span class="slide__num">02</span><span class="slide__title">The Doorway</span><span class="slide__text">Glass, timber and a first look at the counter.</span></figcaption>
+            </figure>
+          </li>
+          <li class="slide slide--wide">
+            <figure>
+              <div class="slide__media"><img src="assets/dining.jpg" alt="Sage-green chairs and a booth beneath the gabled timber roof" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span class="slide__num">03</span><span class="slide__title">The Dining Room</span><span class="slide__text">Sage chairs beneath a gabled timber roof.</span></figcaption>
+            </figure>
+          </li>
+          <li class="slide slide--tall">
+            <figure>
+              <div class="slide__media"><img src="assets/pastry.jpg" alt="The marble counter with cakes and pastries lined up in lit display shelves" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span class="slide__num">04</span><span class="slide__title">The Pastry Case</span><span class="slide__text">Today’s bakes, lined up in marble and light.</span></figcaption>
+            </figure>
+          </li>
+          <li class="slide slide--wide">
+            <figure>
+              <div class="slide__media"><img src="assets/bar.jpg" alt="The side of the bar, with bottles of juice in front of a green moss wall" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span class="slide__num">05</span><span class="slide__title">The Bar</span><span class="slide__text">Cold-pressed bottles beside the moss wall.</span></figcaption>
+            </figure>
+          </li>
+          <li class="slide slide--tall">
+            <figure>
+              <div class="slide__media"><img src="assets/moss.jpg" alt="A neon sign reading “Squeeze the day” glowing on the moss wall above a dining booth" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span class="slide__num">06</span><span class="slide__title">The Neon</span><span class="slide__text">Our promise, written in light.</span></figcaption>
+            </figure>
+          </li>
+        </ol>
+      </div>
+
+      <div class="room__meta container" aria-hidden="true">
+        <span class="room__counter"><b class="room__index">01</b> / 06</span>
+        <span class="room__bar"><i></i></span>
+        <span class="room__drag"><span class="only-wide">Scroll</span><span class="only-narrow">Swipe</span></span>
+      </div>
+    </section>
+
+    <!-- ───────── FULL-BLEED BAND ───────── -->
+    <section class="band" aria-label="From our counter to your table">
+      <div class="band__frame">
+        <img class="band__img" src="assets/band.jpg" alt="Inside Cafetoor: the counter, the moss walls and the “Squeeze the day” neon" loading="lazy" width="1280" height="720">
+        <div class="band__shade" aria-hidden="true"></div>
+      </div>
+      <div class="band__content container">
+        <p class="label label--light" data-reveal>Made for lingering</p>
+        <h2 class="h2 h2--light" data-split>From our counter<br> to your <em>table.</em></h2>
+      </div>
+    </section>
+
+    <!-- ───────── 03 / THE MENU ───────── -->
+    <section class="menu" id="menu">
+      <div class="container">
+        <div class="sec-head grid">
+          <p class="label" data-reveal><span class="label__num">(03)</span>The Menu</p>
+          <div class="sec-head__main">
+            <h2 class="h2" data-split>Fresh, <em>every morning.</em></h2>
+            <p class="lede" data-reveal>Everything we pour, press and bake, on one board. Search it, filter it, or simply wander down the list.</p>
+          </div>
+        </div>
+
+        <!-- The board is filled from menu.js — edit that file to change dishes and prices -->
+        <div class="board" id="menuBoard">
+          <div class="board__side">
+            <div class="board__tools">
+              <div class="search">
+                <label class="sr-only" for="menuSearch">Search the menu</label>
+                <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <input class="search__input" id="menuSearch" type="search" placeholder="Find a dish or a drink" autocomplete="off" spellcheck="false" enterkeyhint="search">
+                <button class="search__clear" type="button" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+              </div>
+              <div class="chips" id="menuChips" role="group" aria-label="Filter the menu"></div>
+            </div>
+            <nav class="cats" id="menuCats" aria-label="Menu sections"><span class="cats__ink" aria-hidden="true"></span></nav>
+            <div class="board__foot">
+              <p class="board__count" id="menuCount" aria-live="polite"></p>
+              <ul class="legend" id="menuLegend" aria-label="Food marks"></ul>
+              <button class="board__print" id="menuPrint" type="button">Print or save the menu</button>
+            </div>
+          </div>
+          <div class="board__list" id="menuList"></div>
+          <div class="board__empty" id="menuEmpty" hidden>
+            <p>Nothing on the board matches that.</p>
+            <button class="btn btn--light btn--sm" id="menuReset" type="button"><span class="btn__txt" data-text="Show everything">Show everything</span></button>
+          </div>
+        </div>
+
+        <div class="menu__after">
+          <p class="menu__note" id="menuNote"></p>
+          <a class="btn btn--accent" href="#visit" data-magnetic><span class="btn__txt" data-text="Order Now">Order Now</span></a>
+        </div>
+        <noscript><p class="lede">Please enable JavaScript to browse the menu.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ───────── STATEMENT ───────── -->
+    <section class="statement" aria-label="Squeeze the day">
+      <div class="statement__bg" style="background-image:url('assets/squeeze.jpg')" aria-hidden="true"></div>
+      <div class="statement__shade" aria-hidden="true"></div>
+      <div class="container statement__inner">
+        <h2 class="statement__title">
+          <span class="sr-only">Squeeze the day.</span>
+          <span class="fill-line" aria-hidden="true">Squeeze</span>
+          <span class="fill-line fill-line--indent" aria-hidden="true">the <em>day.</em></span>
+        </h2>
+        <p class="statement__sub" data-reveal>The words on our neon, and the way we open every morning — from the first pour to the last slice.</p>
+      </div>
+    </section>
+
+    <!-- ───────── 04 / THE RITUAL ───────── -->
+    <section class="ritual" id="ritual">
+      <div class="container grid ritual__grid">
+        <div class="ritual__aside">
+          <p class="label" data-reveal><span class="label__num">(04)</span>The Ritual</p>
+          <h2 class="h2" data-split>Baked, pressed, <em>shared.</em></h2>
+          <div class="ritual__frames" aria-hidden="true">
+            <img class="is-active" src="assets/ritual-1.jpg" alt="" loading="lazy" width="1280" height="720">
+            <img src="assets/ritual-2.jpg" alt="" loading="lazy" width="1280" height="720">
+            <img src="assets/ritual-3.jpg" alt="" loading="lazy" width="1280" height="720">
+          </div>
+        </div>
+
+        <ol class="ritual__steps">
+          <li class="step is-active">
+            <img class="step__img" src="assets/ritual-1.jpg" alt="Cakes and pastries in the marble display case" loading="lazy" width="1280" height="720">
+            <span class="step__num">01</span>
+            <h3 class="step__title">Baked at dawn</h3>
+            <p>Croissants, loaves and cakes come out of the oven before the doors open, so the first slice of the day is still warm.</p>
+          </li>
+          <li class="step">
+            <img class="step__img" src="assets/ritual-2.jpg" alt="Juice bottles lined up along the bar beside the moss wall" loading="lazy" width="1280" height="720">
+            <span class="step__num">02</span>
+            <h3 class="step__title">Pressed to order</h3>
+            <p>Whole fruit and greens, cold-pressed in small batches and poured the moment you ask for it.</p>
+          </li>
+          <li class="step">
+            <img class="step__img" src="assets/ritual-3.jpg" alt="Sage-green chairs around tables in the dining room" loading="lazy" width="1280" height="720">
+            <span class="step__num">03</span>
+            <h3 class="step__title">Shared at the table</h3>
+            <p>Long tables, soft chairs and good light — a room built for one more cup and one more conversation.</p>
+          </li>
+          <span class="ritual__line" aria-hidden="true"><i></i></span>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ───────── 05 / COME THROUGH ───────── -->
+    <section class="visit" id="visit">
+      <div class="container">
+        <div class="sec-head grid">
+          <p class="label label--gold" data-reveal><span class="label__num">(05)</span>Come Through</p>
+          <h2 class="h2 h2--light" data-split>There’s always room <em>at Cafetoor.</em></h2>
+        </div>
+
+        <div class="visit__grid grid">
+          <figure class="visit__media media" data-image-reveal>
+            <img src="assets/visit.jpg" alt="The bright terrace with woven chairs and round tables" loading="lazy" width="1280" height="720" data-parallax="7">
+          </figure>
+
+          <!-- TODO: replace the address, phone, hours and links below with your real details -->
+          <div class="visit__info" data-reveal-group>
+            <div class="info" data-reveal-item>
+              <h3 class="info__label">Find us</h3>
+              <p>Your street address<br>Your city, PIN code</p>
+              <a class="link" href="https://www.google.com/maps" target="_blank" rel="noopener">Get directions <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="info" data-reveal-item>
+              <h3 class="info__label">Call us</h3>
+              <p><a class="link" href="tel:+000000000000">+00 00000 00000</a></p>
+              <p class="info__muted">Tables for groups — call ahead.</p>
+            </div>
+            <div class="info" data-reveal-item>
+              <h3 class="info__label">Hours</h3>
+              <dl class="hours">
+                <div><dt>Mon – Fri</dt><dd>Add hours</dd></div>
+                <div><dt>Sat – Sun</dt><dd>Add hours</dd></div>
+              </dl>
+            </div>
+            <div class="info" data-reveal-item>
+              <h3 class="info__label">Order from home</h3>
+              <p>Delivery &amp; pickup —<br>add your ordering link here.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta">
+          <p class="label label--gold label--center" data-reveal>Your table is waiting</p>
+          <h2 class="cta__title" data-split>Pull up <em>a chair.</em></h2>
+          <div class="cta__actions" data-reveal>
+            <a class="btn btn--accent btn--lg" href="#visit" data-magnetic><span class="btn__txt" data-text="Order Now">Order Now</span></a>
+            <a class="btn btn--ghost btn--lg" href="https://www.google.com/maps" target="_blank" rel="noopener" data-magnetic><span class="btn__txt" data-text="Get Directions">Get Directions</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ───────── DISH VIEW: opens when a dish on the menu board is tapped ───────── -->
+  <dialog class="dv" id="dishView" aria-labelledby="dvName" data-lenis-prevent>
+    <div class="dv__panel">
+      <button class="dv__close" type="button" aria-label="Close dish view" autofocus>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div class="dv__media">
+        <div class="dv__ph" aria-hidden="true"></div>
+        <img class="dv__img" alt="">
+      </div>
+      <div class="dv__body">
+        <p class="dv__cat"></p>
+        <h3 class="dv__name" id="dvName"></h3>
+        <p class="dv__diet"></p>
+        <p class="dv__desc"></p>
+        <div class="dv__prices"></div>
+        <div class="dv__tags"></div>
+        <div class="dv__foot">
+          <div class="dv__nav">
+            <button class="dv__arrow dv__prev" type="button" aria-label="Previous dish">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6.5L9 12l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="dv__pos" aria-live="polite"></span>
+            <button class="dv__arrow dv__next" type="button" aria-label="Next dish">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6.5L15 12l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <a class="btn btn--accent btn--sm" href="#visit"><span class="btn__txt" data-text="Order Now">Order Now</span></a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ───────── FOOTER ───────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <nav class="footer__links" aria-label="Footer">
+          <a href="#story">Story</a>
+          <a href="#room">The Room</a>
+          <a href="#menu">Menu</a>
+          <a href="#ritual">The Ritual</a>
+          <a href="#visit">Visit</a>
+        </nav>
+        <a class="footer__top-link" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+      <p class="footer__mark" aria-hidden="true"><span><i>C</i></span><span><i>a</i></span><span><i>f</i></span><span><i>e</i></span><span><i>t</i></span><span><i>o</i></span><span><i>o</i></span><span><i>r</i></span></p>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Cafetoor</span>
+        <span>Café &amp; Juice Bar</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="menu.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

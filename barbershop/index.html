@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Arco — Barber &amp; Grooming Studio</title>
+  <meta name="description" content="Arco is a barber and grooming studio — precision cuts, hot-towel shaves and slow grooming rituals in a space of warm plaster, arches and soft light.">
+  <meta name="theme-color" content="#f4ece1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/poster.jpg">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Motion bootstrap: hides the hero for its intro only when motion will run,
+       and always gives the page back after 4s if the animation libraries fail. -->
+  <script>
+    (function (h) {
+      h.classList.add('js');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      h.classList.add('has-motion');
+      window.__motionFallback = setTimeout(function () { h.classList.remove('has-motion'); }, 4000);
+    })(document.documentElement);
+  </script>
+</head>
+<body>
+  <a class="skip" href="#studio">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+
+  <!-- ───────── NAV: links · wordmark · booking ───────── -->
+  <header class="nav" id="nav">
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#studio">Studio</a>
+      <a href="#space">Space</a>
+      <a href="#looks">Looks</a>
+      <a href="#services">Services</a>
+      <a href="#chair">The Chair</a>
+    </nav>
+    <a class="brand" href="#top" aria-label="Arco — back to top">
+      <span class="brand__name">Arco</span>
+      <span class="brand__sub">Barber &amp; Grooming</span>
+    </a>
+    <div class="nav__end">
+      <a class="btn btn--ink btn--sm" href="#book" data-magnetic><span class="btn__txt" data-text="Book a Chair">Book a Chair</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer" hidden>
+    <nav class="drawer__links" aria-label="Mobile">
+      <a href="#studio"><span aria-hidden="true">01</span>Studio</a>
+      <a href="#space"><span aria-hidden="true">02</span>Space</a>
+      <a href="#looks"><span aria-hidden="true">03</span>Looks</a>
+      <a href="#services"><span aria-hidden="true">04</span>Services</a>
+      <a href="#chair"><span aria-hidden="true">05</span>The Chair</a>
+      <a href="#book"><span aria-hidden="true">06</span>Book</a>
+    </nav>
+    <div class="drawer__foot">
+      <p>Cut · Shave · Groom</p>
+      <a class="btn btn--ink" href="#book"><span class="btn__txt" data-text="Book a Chair">Book a Chair</span></a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ───────── HERO: the wordmark parts around an arched doorway; scrolling walks you through it ───────── -->
+    <section class="hero" id="top" aria-label="Welcome to Arco">
+      <div class="hero__stage">
+        <span class="hero__window" aria-hidden="true"></span>
+
+        <h1 class="hero__word" aria-label="Arco — barber and grooming studio">
+          <span class="hero__half" aria-hidden="true"><i>Ar</i></span>
+          <span class="hero__gap" aria-hidden="true"></span>
+          <span class="hero__half" aria-hidden="true"><i>co</i></span>
+        </h1>
+
+        <div class="portal">
+          <video class="portal__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg" aria-hidden="true" tabindex="-1">
+            <source src="assets/hero.mp4" type="video/mp4">
+          </video>
+          <div class="portal__shade" aria-hidden="true"></div>
+        </div>
+        <span class="hero__ring" aria-hidden="true"></span>
+
+        <p class="hero__step" aria-hidden="true">Step <em>inside.</em></p>
+
+        <div class="hero__ui">
+          <p class="hero__kicker" data-hero-fade><span class="pulse" aria-hidden="true"></span>Barber · Shave · Groom</p>
+          <p class="hero__scroll" data-hero-fade aria-hidden="true"><span></span>Scroll to step inside</p>
+          <p class="hero__intro" data-hero-fade>Precision cuts, hot-towel shaves and slow grooming rituals — in a studio of warm plaster, arches and glow.</p>
+          <div class="hero__cta" data-hero-fade>
+            <a class="btn btn--ink" href="#book" data-magnetic><span class="btn__txt" data-text="Book a Chair">Book a Chair</span></a>
+            <a class="btn btn--line" href="#services" data-magnetic><span class="btn__txt" data-text="Build your visit">Build your visit</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 01 / STUDIO: a manifesto with photos set into the sentence ───────── -->
+    <section class="studio" id="studio">
+      <div class="container">
+        <p class="label label--center" data-reveal><span class="label__num">(01)</span>The Studio</p>
+        <p class="manifesto" data-manifesto>
+          Sharp <span class="inl"><img src="assets/stations.jpg" alt="" loading="lazy" width="1280" height="720"></span> fades, slow <span class="inl"><img src="assets/wash.jpg" alt="" loading="lazy" width="1280" height="720"></span> shaves, and an hour <span class="inl"><img src="assets/lounge.jpg" alt="" loading="lazy" width="1280" height="720"></span> that belongs to <em>you.</em>
+        </p>
+
+        <div class="notes" data-reveal-group>
+          <article class="note" data-reveal-item>
+            <span class="note__arch" aria-hidden="true"></span>
+            <h3 class="note__title">Cut</h3>
+            <p>Fades, scissor cuts and classic shapes, finished with a razor line-up.</p>
+          </article>
+          <article class="note" data-reveal-item>
+            <span class="note__arch" aria-hidden="true"></span>
+            <h3 class="note__title">Shave</h3>
+            <p>Hot towels, a straight razor and a beard shaped to fit your face.</p>
+          </article>
+          <article class="note" data-reveal-item>
+            <span class="note__arch" aria-hidden="true"></span>
+            <h3 class="note__title">Care</h3>
+            <p>Scalp rituals, hair spa and hand &amp; foot care for the full reset.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 02 / SPACE: arch collage, columns drift at different speeds ───────── -->
+    <section class="space" id="space">
+      <div class="container">
+        <div class="space__head">
+          <p class="label" data-reveal><span class="label__num">(02)</span>The Space</p>
+          <h2 class="h2" data-split>Look <em>around.</em></h2>
+          <p class="space__lede" data-reveal>Warm plaster, carved arches and light that never glares — six corners of the studio.</p>
+        </div>
+
+        <div class="mosaic">
+          <div class="mosaic__col" data-speed="-5">
+            <figure class="tile tile--arch">
+              <div class="tile__img" data-image-reveal><img src="assets/reception.jpg" alt="The reception: a curved plaster desk beside tall glass doors and a garden view" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span>01</span>The Arrival</figcaption>
+            </figure>
+            <figure class="tile">
+              <div class="tile__img" data-image-reveal><img src="assets/wash-pair.jpg" alt="Two reclining wash chairs with black basins under a glowing ceiling line" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span>02</span>The Wash Bay</figcaption>
+            </figure>
+          </div>
+          <div class="mosaic__col mosaic__col--mid" data-speed="7">
+            <figure class="tile">
+              <div class="tile__img" data-image-reveal><img src="assets/poster.jpg" alt="Caramel leather styling chairs facing backlit arched mirrors" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span>03</span>The Chairs</figcaption>
+            </figure>
+            <figure class="tile tile--arch">
+              <div class="tile__img" data-image-reveal><img src="assets/mirrors.jpg" alt="Tall arched mirrors outlined in warm light along the styling wall" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span>04</span>The Mirrors</figcaption>
+            </figure>
+          </div>
+          <div class="mosaic__col" data-speed="-9">
+            <figure class="tile tile--arch">
+              <div class="tile__img" data-image-reveal><img src="assets/lounge.jpg" alt="A cream sofa with terracotta cushions beneath carved plaster arches" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span>05</span>The Lounge</figcaption>
+            </figure>
+            <figure class="tile">
+              <div class="tile__img" data-image-reveal><img src="assets/pedicure.jpg" alt="Two leather pedicure chairs and a manicure table in a softly lit alcove" loading="lazy" width="1280" height="720"></div>
+              <figcaption><span>06</span>Hand &amp; Foot Lounge</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 03 / LOOKS: what you walk out with ───────── -->
+    <section class="looks" id="looks">
+      <div class="container">
+        <div class="looks__head">
+          <p class="label label--gold" data-reveal><span class="label__num">(03)</span>Looks</p>
+          <h2 class="h2 h2--light" data-split>Find your <em>look.</em></h2>
+          <p class="looks__lede" data-reveal>Reference looks for our most-asked services. Tap one to see it up close, add it to your visit — or simply show it to your barber.</p>
+        </div>
+        <div class="looks__bar" data-reveal>
+          <div class="looks__chips" id="lookChips" role="group" aria-label="Filter looks"></div>
+          <div class="looks__arrows">
+            <button class="looks__arrow" id="lookPrev" type="button" aria-label="Scroll looks back">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6.5L9 12l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="looks__arrow" id="lookNext" type="button" aria-label="Scroll looks forward">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6.5L15 12l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Look cards are built from services.js (any service with a `look`) -->
+      <ul class="rail" id="lookRail" aria-label="Looks"></ul>
+      <p class="looks__fine container">Photos shown are reference looks, not our clients — every cut is tailored to you.</p>
+    </section>
+
+    <!-- ───────── 04 / SERVICES: build your visit (cards stack as you scroll) ───────── -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services__head">
+          <p class="label" data-reveal><span class="label__num">(04)</span>Services</p>
+          <h2 class="h2" data-split>Build your <em>visit.</em></h2>
+          <p class="services__lede" data-reveal>Tap <b aria-hidden="true">+</b><span class="sr-only">the add button</span> on anything you’d like. We add up the time and the price as you go — then book it all in one message.</p>
+        </div>
+        <!-- Cards are built from services.js -->
+        <div class="stack" id="stack"></div>
+        <noscript><p class="services__lede">Please enable JavaScript to see our services.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ───────── 04 / THE CHAIR: an arch of light draws itself through 45 minutes ───────── -->
+    <section class="chair" id="chair">
+      <div class="chair__bg" aria-hidden="true"></div>
+      <div class="chair__stage">
+        <div class="chair__head">
+          <p class="label label--gold label--center" data-reveal><span class="label__num">(05)</span>The Chair</p>
+          <h2 class="h2 h2--light" data-split>Your <em>45 minutes.</em></h2>
+        </div>
+        <div class="chair__arch">
+          <svg class="chair__svg" viewBox="0 0 520 600" aria-hidden="true">
+            <path class="chair__track" d="M 40 600 L 40 260 A 220 220 0 0 1 480 260 L 480 600"/>
+            <path class="chair__glow" d="M 40 600 L 40 260 A 220 220 0 0 1 480 260 L 480 600"/>
+            <g class="chair__dots"></g>
+          </svg>
+          <ol class="chair__steps">
+            <li class="cstep is-active" data-min="0">
+              <span class="cstep__time">00:00</span>
+              <h3>Hello &amp; a chat</h3>
+              <p>Coffee or water, then a proper talk about what you want.</p>
+            </li>
+            <li class="cstep" data-min="5">
+              <span class="cstep__time">00:05</span>
+              <h3>The wash</h3>
+              <p>A warm rinse at the basin to reset hair and scalp.</p>
+            </li>
+            <li class="cstep" data-min="15">
+              <span class="cstep__time">00:15</span>
+              <h3>The cut</h3>
+              <p>Clippers and scissors, line by line, checked in the mirror.</p>
+            </li>
+            <li class="cstep" data-min="38">
+              <span class="cstep__time">00:38</span>
+              <h3>Hot towel</h3>
+              <p>A hot towel and a razor-clean neckline.</p>
+            </li>
+            <li class="cstep" data-min="45">
+              <span class="cstep__time">00:45</span>
+              <h3>Out the door</h3>
+              <p>A little product, one last look, and you’re ready.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 05 / BOOK: your visit + day & time ───────── -->
+    <section class="book" id="book">
+      <div class="container">
+        <div class="book__head">
+          <p class="label" data-reveal><span class="label__num">(06)</span>Book</p>
+          <h2 class="h2" data-split>Your chair is <em>waiting.</em></h2>
+        </div>
+
+        <div class="book__grid">
+          <aside class="visit" aria-labelledby="visitTitle" data-reveal>
+            <p class="visit__kicker">Your visit</p>
+            <h3 class="visit__title" id="visitTitle"><span id="visitCount">No</span> <span id="visitNoun">services</span> yet</h3>
+            <ul class="visit__list" id="visitList"></ul>
+            <p class="visit__empty" id="visitEmpty">Add services from the cards above, or pick one here.</p>
+            <label class="sr-only" for="quickAdd">Add a service to your visit</label>
+            <select class="visit__add" id="quickAdd"><option value="">+ Add a service</option></select>
+            <dl class="visit__totals">
+              <div><dt>Time</dt><dd id="visitTime">—</dd></div>
+              <div><dt>Total</dt><dd id="visitPrice">—</dd></div>
+            </dl>
+            <p class="visit__fine">Prices are a guide — we confirm everything on WhatsApp.</p>
+          </aside>
+
+          <form class="bform" id="bookForm" novalidate data-reveal>
+            <div class="bform__row">
+              <div class="field">
+                <label for="bkName">Your name</label>
+                <input id="bkName" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="bkPhone">Phone <span>(optional)</span></label>
+                <input id="bkPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+              </div>
+            </div>
+            <fieldset class="field" id="bkDayField">
+              <legend>Day</legend>
+              <div class="days" id="bkDays"></div>
+            </fieldset>
+            <fieldset class="field" id="bkTimeField">
+              <legend>Time</legend>
+              <div class="slots" id="bkSlots"><p class="slots__hint">Pick a day to see times.</p></div>
+            </fieldset>
+            <div class="field">
+              <label for="bkNotes">Anything we should know? <span>(optional)</span></label>
+              <textarea id="bkNotes" name="notes" rows="3"></textarea>
+            </div>
+            <p class="bform__error" id="bkError" role="alert" hidden></p>
+            <div class="bform__actions">
+              <button class="btn btn--accent btn--lg" type="submit"><span class="btn__txt" data-text="Send on WhatsApp">Send on WhatsApp</span></button>
+              <p class="bform__fine" id="bkFine">Opens WhatsApp with your request written out. Nothing is sent until you press send there.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 06 / FIND US ───────── -->
+    <section class="find" id="visit">
+      <div class="container find__grid">
+        <figure class="find__photo" data-image-reveal>
+          <img src="assets/visit.jpg" alt="The reception desk and lounge, with tall glass doors onto the garden" loading="lazy" width="1280" height="720">
+        </figure>
+        <div class="find__body">
+          <p class="label label--gold" data-reveal><span class="label__num">(07)</span>Find Us</p>
+          <h2 class="h2 h2--light" data-split>Sit back. <em>We’ve got you.</em></h2>
+          <!-- TODO: replace the address, phone, hours and links below with your real details -->
+          <div class="find__cols" data-reveal-group>
+            <div class="info" data-reveal-item>
+              <h3 class="info__label">Find us</h3>
+              <p>Your street address<br>Your city, PIN code</p>
+              <a class="link" href="https://www.google.com/maps" target="_blank" rel="noopener">Get directions <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="info" data-reveal-item>
+              <h3 class="info__label">Call us</h3>
+              <p><a class="link" href="tel:+000000000000">+00 00000 00000</a></p>
+              <p class="info__muted">Walk-ins welcome when a chair is free.</p>
+            </div>
+            <div class="info" data-reveal-item>
+              <h3 class="info__label">Hours</h3>
+              <dl class="hours">
+                <div><dt>Mon – Fri</dt><dd>Add hours</dd></div>
+                <div><dt>Sat – Sun</dt><dd>Add hours</dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="find__cta" data-reveal>
+            <a class="btn btn--glow btn--lg" href="#book" data-magnetic><span class="btn__txt" data-text="Book a Chair">Book a Chair</span></a>
+            <a class="btn btn--ghost btn--lg" href="https://www.google.com/maps" target="_blank" rel="noopener" data-magnetic><span class="btn__txt" data-text="Get Directions">Get Directions</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ───────── LOOK VIEWER ───────── -->
+  <dialog class="lv" id="lookView" aria-labelledby="lvName" data-lenis-prevent>
+    <div class="lv__panel">
+      <button class="lv__close" type="button" aria-label="Close look" autofocus>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <figure class="lv__media">
+        <img class="lv__img" alt="">
+        <figcaption class="lv__credit"></figcaption>
+      </figure>
+      <div class="lv__body">
+        <p class="lv__cat"></p>
+        <h3 class="lv__name" id="lvName"></h3>
+        <p class="lv__desc"></p>
+        <p class="lv__meta"></p>
+        <div class="lv__choose"></div>
+        <p class="lv__note">Reference look — bring it to the chair and we’ll tailor it to your hair and face.</p>
+        <div class="lv__foot">
+          <div class="lv__nav">
+            <button class="lv__arrow lv__prev" type="button" aria-label="Previous look">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6.5L9 12l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="lv__pos" aria-live="polite"></span>
+            <button class="lv__arrow lv__next" type="button" aria-label="Next look">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6.5L15 12l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <a class="btn btn--accent btn--sm lv__book" href="#book"><span class="btn__txt" data-text="Book this look">Book this look</span></a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- floating “your visit” bar -->
+  <div class="tray is-away" id="tray" inert>
+    <span class="tray__count" id="trayCount" aria-hidden="true">0</span>
+    <p class="tray__sum" id="traySum" aria-live="polite"></p>
+    <a class="tray__go" href="#book">Book these <span aria-hidden="true">→</span></a>
+    <button class="tray__clear" id="trayClear" type="button" aria-label="Clear your visit">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <!-- ───────── FOOTER ───────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <nav class="footer__links" aria-label="Footer">
+          <a href="#studio">Studio</a>
+          <a href="#space">Space</a>
+          <a href="#looks">Looks</a>
+          <a href="#services">Services</a>
+          <a href="#chair">The Chair</a>
+          <a href="#book">Book</a>
+        </nav>
+        <a class="footer__top-link" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+      <p class="footer__mark" aria-hidden="true"><span><i>A</i></span><span><i>r</i></span><span><i>c</i></span><span><i>o</i></span></p>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Arco</span>
+        <span>Barber &amp; Grooming Studio</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="services.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
