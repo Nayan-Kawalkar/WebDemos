@@ -954,7 +954,7 @@
     const words = splitWords(node);
     gsap.fromTo(words, { yPercent: 118 }, {
       yPercent: 0, duration: 1.25, ease: 'power4.out', stagger: 0.065,
-      scrollTrigger: { trigger: node, start: 'top 86%', once: true },
+      scrollTrigger: { trigger: node, start: 'top 86%', toggleActions: 'play none none none' },
     });
   });
 
@@ -962,20 +962,20 @@
   $$('[data-reveal]').forEach((node) => {
     gsap.fromTo(node, { y: 30, autoAlpha: 0 }, {
       y: 0, autoAlpha: 1, duration: 1,
-      scrollTrigger: { trigger: node, start: 'top 88%', once: true },
+      scrollTrigger: { trigger: node, start: 'top 88%', toggleActions: 'play none none none' },
     });
   });
   $$('[data-reveal-group]').forEach((group) => {
     gsap.fromTo($$('[data-reveal-item]', group), { y: 36, autoAlpha: 0 }, {
       y: 0, autoAlpha: 1, duration: 1, stagger: 0.09,
-      scrollTrigger: { trigger: group, start: 'top 86%', once: true },
+      scrollTrigger: { trigger: group, start: 'top 86%', toggleActions: 'play none none none' },
     });
   });
 
   // photos open from the bottom like a curtain
   $$('[data-image-reveal]').forEach((frame) => {
     const img = $('img', frame);
-    gsap.timeline({ scrollTrigger: { trigger: frame, start: 'top 88%', once: true } })
+    gsap.timeline({ scrollTrigger: { trigger: frame, start: 'top 88%', toggleActions: 'play none none none' } })
       .fromTo(frame, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.5, ease: 'expo.out' })
       .fromTo(img, { scale: 1.3 }, { scale: 1, duration: 1.9, ease: 'expo.out' }, 0);
   });
@@ -984,11 +984,11 @@
   cards.forEach((card) => {
     gsap.fromTo($('.svc__media', card), { clipPath: 'inset(100% 0% 0% 0%)' }, {
       clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'expo.out',
-      scrollTrigger: { trigger: card, start: 'top 85%', once: true },
+      scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none none' },
     });
     gsap.fromTo($$('.opt', card), { y: 26, autoAlpha: 0 }, {
       y: 0, autoAlpha: 1, duration: 0.9, stagger: 0.06, delay: 0.2,
-      scrollTrigger: { trigger: card, start: 'top 85%', once: true },
+      scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none none' },
     });
   });
 
@@ -997,10 +997,14 @@
   if (lookCards.length) {
     gsap.fromTo(lookCards, { y: 50, autoAlpha: 0 }, {
       y: 0, autoAlpha: 1, duration: 1, stagger: 0.07,
-      scrollTrigger: { trigger: '#lookRail', start: 'top 88%', once: true },
+      scrollTrigger: { trigger: '#lookRail', start: 'top 88%', toggleActions: 'play none none none' },
     });
   }
 
+  // reveals above use toggleActions instead of `once`: a `once` trigger deletes itself, and doing that
+  // while ScrollTrigger is mid-refresh can throw and leave every pinned scene stuck.
+
+  ScrollTrigger.addEventListener('refreshInit', layoutStack); // card stick points, before the stack measures
   const mm = gsap.matchMedia();
   mm.add('(min-width: 1000px)', () => {
     cards.forEach((card, i) => {
@@ -1010,7 +1014,7 @@
         scrollTrigger: {
           trigger: next,
           start: 'top bottom',
-          end: () => { layoutStack(); return `top ${stickTops[i + 1]}px`; }, // until the next card settles
+          end: () => `top ${stickTops[i + 1]}px`, // until the next card settles
           scrub: true,
           invalidateOnRefresh: true,
         },
@@ -1034,7 +1038,7 @@
   // footer wordmark rises letter by letter
   gsap.fromTo('.footer__mark i', { yPercent: 105 }, {
     yPercent: 0, duration: 1.3, ease: 'power4.out', stagger: 0.07,
-    scrollTrigger: { trigger: '.footer__mark', start: 'top 95%', once: true },
+    scrollTrigger: { trigger: '.footer__mark', start: 'top 95%', toggleActions: 'play none none none' },
   });
 
   // magnetic buttons (mouse only)
@@ -1099,7 +1103,7 @@
       .to(ui, { autoAlpha: 1, duration: 1, ease: 'power2.out' }, 1.2);
 
     gsap.timeline({
-      scrollTrigger: { trigger: hero, start: 'top top', end: '+=130%', pin: true, scrub: 1, anticipatePin: 1 },
+      scrollTrigger: { trigger: hero, start: 'top top', end: '+=130%', pin: true, scrub: 1 },
     })
       .to(state, { open: 1, duration: 1, ease: 'power2.inOut', onUpdate: apply }, 0)
       .fromTo(video, { scale: 1.12 }, { scale: 1, duration: 1, ease: 'none' }, 0)
@@ -1123,7 +1127,7 @@
       p: 1,
       ease: 'none',
       onUpdate: () => chair.set(proxy.p),
-      scrollTrigger: { trigger: section, start: 'top top', end: '+=240%', pin: true, scrub: 0.8, anticipatePin: 1 },
+      scrollTrigger: { trigger: section, start: 'top top', end: '+=240%', pin: true, scrub: 0.8 },
     });
   }
 })();

@@ -36,6 +36,9 @@
 /* ───────── Base ───────── */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scrollbar-gutter: stable; -webkit-text-size-adjust: 100%; }
+/* With motion on, Lenis does the smoothing. A CSS smooth behaviour here makes ScrollTrigger's
+   re-measure (on load, font swap, resize) glide instead of jump, and the pinned scenes end up misplaced. */
+html.motion-on { scroll-behavior: auto; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }

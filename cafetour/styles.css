@@ -37,6 +37,9 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
+/* With motion on, Lenis does the smoothing. A CSS smooth behaviour here makes ScrollTrigger's
+   re-measure (on load, font swap, resize) glide instead of jump, and the pinned scenes end up misplaced. */
+html.motion-on { scroll-behavior: auto; }
 /* Lenis */
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
